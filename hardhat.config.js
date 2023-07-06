@@ -1,10 +1,11 @@
-require("@nomiclabs/hardhat-waffle");
-require("@nomiclabs/hardhat-etherscan");
+// require("@nomiclabs/hardhat-etherscan");
 require("hardhat-deploy");
-require("solidity-coverage");
-require("hardhat-gas-reporter");
+// require("solidity-coverage");
+// require("hardhat-gas-reporter");
 require("hardhat-contract-sizer");
 require("dotenv").config();
+require("@nomicfoundation/hardhat-chai-matchers");
+require("@nomicfoundation/hardhat-toolbox");
 
 const URL = process.env.RPC_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
@@ -33,5 +34,12 @@ module.exports = {
     player: {
       default: 1,
     },
+  },
+  gasReporter: {
+    enabled: false,
+    outputFile: "gasreport.txt",
+    noColors: true,
+    currency: "USD",
+    token: "MATIC",
   },
 };

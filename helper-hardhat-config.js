@@ -1,4 +1,5 @@
 const { ethers } = require("hardhat");
+require("@nomicfoundation/hardhat-toolbox");
 
 const networkConfig = {
   1115511: {

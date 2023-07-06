@@ -18,8 +18,8 @@ module.exports = async function ({ getNamedAccounts, deplyments }) {
     );
     vrfCoordinatorV2Address = await vrfCoordinatorV2Mock.getAddress();
     const transactionResponse = await vrfCoordinatorV2Mock.createSubscription();
-    const transactionReceipt = await transactionResponse.wait(1);
-    susbcriptionId = transactionReceipt.events[0].args.subId;
+    const transactionReceipt = await transactionResponse.wait(2);
+    susbcriptionId = BigInt(1);
     await vrfCoordinatorV2Mock.fundSubscription(
       susbcriptionId,
       VRF_SUB_FUND_AMOUNT
@@ -31,7 +31,7 @@ module.exports = async function ({ getNamedAccounts, deplyments }) {
 
   const entranceFee = networkConfig[chainId]["entranceFee"];
   const gasLane = networkConfig[chainId]["gasLane"];
-  const callbackGasLimit = networkConfig[chainId]["callbacGasLimit"];
+  const callbackGasLimit = networkConfig[chainId]["callbackGasLimit"];
   const interval = networkConfig[chainId]["interval"];
   const args = [
     vrfCoordinatorV2Address,
