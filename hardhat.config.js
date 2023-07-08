@@ -1,3 +1,5 @@
+const { EtherscanProvider } = require("ethers");
+
 // require("@nomiclabs/hardhat-etherscan");
 require("hardhat-deploy");
 // require("solidity-coverage");
@@ -21,10 +23,16 @@ module.exports = {
       blockConfirmations: 1,
     },
     sepolia: {
-      chainId: 1115511,
+      chainId: 11155111,
       blockConfirmations: 6,
       url: URL,
       accounts: [PRIVATE_KEY],
+      apiKey: ETHERSCAN_API_KEY,
+    },
+  },
+  etherscan: {
+    apiKey: {
+      sepolia: ETHERSCAN_API_KEY,
     },
   },
   namedAccounts: {
@@ -36,10 +44,13 @@ module.exports = {
     },
   },
   gasReporter: {
-    enabled: false,
+    enabled: true,
     outputFile: "gasreport.txt",
     noColors: true,
     currency: "USD",
     token: "MATIC",
+  },
+  mocha: {
+    timeout: 300000,
   },
 };
