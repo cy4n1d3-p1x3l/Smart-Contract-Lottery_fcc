@@ -4,7 +4,7 @@ const {
   developmentChains,
   networkConfig,
 } = require("../helper-hardhat-config");
-// const { verify } = require("../helper-hardhat-config");
+const { verify } = require("../helper-hardhat-config");
 const VRF_SUB_FUND_AMOUNT = ethers.parseEther("2");
 
 module.exports = async function ({ getNamedAccounts, deplyments }) {
@@ -50,11 +50,11 @@ module.exports = async function ({ getNamedAccounts, deplyments }) {
     !developmentChains.includes(network.name) &&
     process.env.ETHERSCAN_API_KEY
   ) {
-    log("verifying-----");
-    await run("verify:verify", {
-      address: raffle.address,
-      constructorArguments: args,
-    });
+    // log("verifying-----");
+    // await run("verify:verify", {
+    //   address: raffle.address,
+    //   constructorArguments: args,
+    // });
   } else {
     await vrfCoordinatorV2Mock.addConsumer(susbcriptionId, raffle.address);
 

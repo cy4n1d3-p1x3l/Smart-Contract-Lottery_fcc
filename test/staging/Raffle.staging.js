@@ -3,6 +3,7 @@ const { developmentChains } = require("../../helper-hardhat-config");
 const { assert, expect } = require("chai");
 const { networkConfig } = require("../../helper-hardhat-config");
 const { randomBytes, resolveAddress, getAccountPath } = require("ethers");
+var promise = require("promise");
 
 developmentChains.includes(network.name)
   ? describe.skip

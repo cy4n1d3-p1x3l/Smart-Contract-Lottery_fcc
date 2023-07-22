@@ -31,6 +31,8 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "hardhat-shorthand": "^1.0.0"
-  }
+    "hardhat-shorthand": "^1.0.0",
+    "promise": "^8.3.0"
+  },
+  "repository": "https://github.com/cy4n1d3-p1x3l/Smart-Contract-Lottery_fcc"
 }
